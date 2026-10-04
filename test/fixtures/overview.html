@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usage tracker test fixture</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+  body { font: 14px system-ui, sans-serif; background: #fafafa; color: #202020; margin: 0; }
+  main { max-width: 728px; margin: 48px auto; padding: 0 20px; }
+  h1 { font-size: 24px; font-weight: 600; }
+  h2 { margin-top: 36px; font-size: 16px; font-weight: 600; }
+  .note { color: #666; line-height: 1.4; }
+  .card { padding: 16px; border: 1px solid #e5e5e5; border-radius: 16px; }
+  .usage-row { display: flex; justify-content: space-between; font-size: 12px; color: #666; margin: 5px 0; }
+  .native-progress { appearance: none; display: block; width: 100%; height: 6px; border: 0; border-radius: 99px; overflow: hidden; }
+  .native-progress::-webkit-progress-bar { background: #e5e5e5; }
+  .native-progress::-webkit-progress-value { background: #171717; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #171717; color: #eee; }
+    .card { border-color: #444; }
+    .note, .usage-row { color: #aaa; }
+    .native-progress::-webkit-progress-bar { background: #444; }
+    .native-progress::-webkit-progress-value { background: #eee; }
+  }
+</style>
+<main>
+<h1>Usage</h1>
+<p class="note">Overview &nbsp;&nbsp; Analytics</p>
+<h2>Plan limits</h2>
+<p class="note">Shared across Codex, Work, Workspace Agents, and ChatGPT for Excel. Chat conversations are not included.</p>
+<!-- Sanitized fixture of the observed October 2026 card hierarchy. -->
+<div class="card" id="weekly">
+  <div><div><div>Weekly limit</div></div></div>
+  <div class="w-full"><div>
+    <div class="usage-row"><span><span title="Friday, October 9, 2026 at 2:55:27 PM PDT">Resets in 5d 4h</span></span><span>70% left</span></div>
+    <div><progress class="native-progress" max="100" value="70" aria-label="Usage remaining"></progress></div>
+  </div></div>
+</div>
+<h2>Credits</h2>
+<div class="card">0 credits remaining<p class="note">Current balance</p></div>
+<p class="note">Local test fixture · sample usage values</p>
+</main>
+<script src="/content.js"></script>
+</html>

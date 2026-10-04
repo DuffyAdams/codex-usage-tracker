@@ -1,19 +1,19 @@
 Codex Usage Tracker - Privacy Policy
 
 1. Introduction
-This privacy policy explains how the Codex Usage Tracker ("the Extension") handles your data.
+This privacy policy explains how Codex Usage Tracker handles data.
 
-2. Data Collection
-The Extension does not collect, store, or transmit any personally identifiable information, browsing history, or user data. 
+2. Local Processing
+The extension reads limit names, usage percentages, cycle durations, and reset timestamps from the ChatGPT usage overview page. It calculates time remaining and pacing locally. It does not read chat content or collect account identifiers, credentials, or browsing history.
 
-3. How it Works
-The Extension operates entirely locally within your browser. It reads your usage reset timestamps from the ChatGPT analytics page solely to calculate and display a visual progress bar. This information is processed in real-time and never leaves your device.
+3. Data Storage
+The extension uses the storage permission to save the latest usage summary and the time the page was read in chrome.storage.local. This allows the toolbar popup to display the summary after the usage tab closes. The extension does not sync this data or transmit it to any server. The next summary replaces the previous one. Removing the extension clears its saved data.
 
-4. Data Storage
-The Extension uses the "storage" permission only to save your UI preferences (such as your progress bar settings) locally on your machine. This data is not shared with the developer or any third parties.
+4. Page Access
+The content script runs on chatgpt.com to support navigation to Usage without a full page reload. It only examines usage limit cards on supported usage overview routes. The popup displays the most recently read page's summary; it does not fetch usage in the background.
 
 5. Third Parties
-The Extension does not share any data with third-party services, analytics providers, or advertisers.
+The extension does not share data with third-party services, analytics providers, advertisers, or the developer.
 
 6. Changes
-Any future changes to this policy will be posted here and noted in the Extension's version update logs.
+Future changes to this policy will be posted here and noted in the extension's version update logs.

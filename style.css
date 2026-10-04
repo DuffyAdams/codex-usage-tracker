@@ -1,26 +1,85 @@
-/* 
- * Styles to ensure the injected bar matches the OpenAI aesthetic 
- */
-
-.time-progress-container {
-  /* Match the spacing and transition of the original UI */
-  transition: opacity 0.3s ease;
+/* All styles are extension-owned; never override ChatGPT utility classes. */
+.codex-time-progress {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-light, rgba(128, 128, 128, 0.2));
+  color: inherit;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
-/* We can use the site's own tokens, but here are fallbacks or custom tweaks */
-.bg-blue-500 {
-  background-color: #3b82f6 !important;
+.codex-time-progress .codex-time-progress__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
 }
 
-.bg-green-500 {
-  background-color: #10b981 !important;
+.codex-time-progress .codex-time-progress__value {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
-.rounded-full {
-  border-radius: 9999px !important;
+.codex-time-progress .codex-time-progress__bar {
+  display: block;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(128, 128, 128, 0.18);
+  color: #3b82f6;
 }
 
-/* Ensure the background of the bar matches the dark/light mode */
-.bg-token-main-surface-secondary {
-  background-color: rgba(155, 155, 155, 0.1) !important;
+.codex-time-progress .codex-time-progress__bar::-webkit-progress-bar {
+  background: rgba(128, 128, 128, 0.18);
+  border-radius: 999px;
+}
+
+.codex-time-progress .codex-time-progress__bar::-webkit-progress-value {
+  background: #3b82f6;
+  border-radius: 999px;
+}
+
+.codex-time-progress .codex-time-progress__bar::-moz-progress-bar {
+  background: #3b82f6;
+  border-radius: 999px;
+}
+
+.codex-time-progress .codex-time-progress__pace {
+  margin: 6px 0 0;
+  opacity: 0.75;
+  overflow-wrap: anywhere;
+}
+
+.codex-time-progress__message {
+  --pace-accent: #3b82f6;
+  box-sizing: border-box;
+  width: 100%;
+  grid-column: 1 / -1;
+  flex-basis: 100%;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-left: 4px solid var(--pace-accent);
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.codex-time-progress__message[data-pace="fast"],
+.codex-time-progress__message[data-pace="sprinting"],
+.codex-time-progress__message[data-pace="exhausted"] {
+  --pace-accent: #d97706;
+  border-color: rgba(217, 119, 6, 0.3);
+  border-left-color: var(--pace-accent);
+  background: rgba(217, 119, 6, 0.12);
 }

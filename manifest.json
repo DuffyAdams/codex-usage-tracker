@@ -1,18 +1,36 @@
 {
   "manifest_version": 3,
   "name": "Codex Usage Tracker",
-  "version": "1.0",
-  "description": "Adds a time-elapsed progress bar to the Codex usage analytics page.",
-  "permissions": ["storage"],
+  "version": "1.2.2",
+  "description": "Compare remaining usage with time remaining in your Codex and ChatGPT Work usage cycle.",
   "content_scripts": [
     {
-      "matches": ["https://chatgpt.com/codex/cloud/settings/analytics*"],
-      "js": ["content.js"],
-      "css": ["style.css"]
+      "matches": [
+        "https://chatgpt.com/*"
+      ],
+      "js": [
+        "pace.js",
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "run_at": "document_idle"
     }
   ],
   "icons": {
     "48": "icon48.png",
     "128": "icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "Codex Usage Tracker",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
   }
 }
